@@ -19,7 +19,8 @@
 // Create two objects, `francis`, `frieda` with the fields : `age` (an integer) and `name`, (obviously a string)
 const francis = {
   age: 17,
-  name: "Francis"
+  name: "Francis",
+  licence: ""
 };
 
 const frieda = {
@@ -29,11 +30,13 @@ const frieda = {
 
 // Create two variables `canFriedaDrinkAlcohol` and `canFrancisDrinkAlcohol` to answer, respectively, to the question "Can he / she drink
 // alcohol.".
-<<<<<<< HEAD
-// These variables should stay correct if we modify the ages of the objects `francis` and `frieda` in the declaration.
-=======
 // These variables should stay correct if we modify the ages of the objects `francis` and `frieda`.
+<<<<<<< HEAD
 const canFriedaDrinkAlcohol = true;
 const canFrancisDrinkAlcohol = false;
 >>>>>>> exo done 23112017
 >>>>>>> exo done 23112017
+=======
+const canFriedaDrinkAlcohol = frieda.age >= 18;
+const canFrancisDrinkAlcohol = francis.age >= 18;
+>>>>>>> BIM BAM BOUM, fin de l'exo 4
