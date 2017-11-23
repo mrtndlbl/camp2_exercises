@@ -12,3 +12,10 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~~~~~~X~~~~~~~~~~~~~~~~~~~~~~~
 // ```
+let stdout = [];
+for (let ligne = 0; ligne < 9; ligne++){
+  console.log(stdout);
+    for (let colonne = 0; colonne < 30; colonne++){
+      stdout = `${stdout}~`;
+  }
+}
