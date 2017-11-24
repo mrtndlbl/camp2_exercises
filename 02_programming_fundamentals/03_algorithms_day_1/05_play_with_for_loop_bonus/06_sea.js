@@ -16,7 +16,7 @@ let stdout = [];
 for (let ligne = 1; ligne <= 9; ligne++){
   for (let colonne = 1; colonne <= 30; colonne++){
     if (ligne === 2 && colonne === 25) {
-      console.log("X");
+      stdout[colonne] = "X");
     } else if (ligne === 9 && colonne === 7){
       console.log("X");
     } else if (ligne === 4 && colonne === 6){
@@ -26,5 +26,6 @@ for (let ligne = 1; ligne <= 9; ligne++){
     } else {
       console.log("~");
     }
+    console.log(stdout[ligne]);
   }
 }
