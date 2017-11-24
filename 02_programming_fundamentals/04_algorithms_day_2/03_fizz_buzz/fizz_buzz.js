@@ -29,7 +29,6 @@ function isDivisibleBy5(numberIn) {
   return Number.isInteger(numberIn / 5);
 }
 
-
 function fizzBuzz(list) {
   let newArray = [];
   for (let i = 0; i < list.length; i++) {

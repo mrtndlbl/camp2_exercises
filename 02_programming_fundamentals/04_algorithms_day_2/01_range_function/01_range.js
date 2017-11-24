@@ -21,7 +21,6 @@ function range(startNumber, endNumber) {
   }
 }
 
-range(1,4)
 // Do not remove last lines, it is for tests
 // eslint-disable-next-line
 module.exports = range;
