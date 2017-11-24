@@ -13,9 +13,18 @@
 // ~~~~~~X~~~~~~~~~~~~~~~~~~~~~~~
 // ```
 let stdout = [];
-for (let ligne = 0; ligne < 9; ligne++){
-  console.log(stdout);
-    for (let colonne = 0; colonne < 30; colonne++){
-      stdout = `${stdout}~`;
+for (let ligne = 1; ligne <= 9; ligne++){
+  for (let colonne = 1; colonne <= 30; colonne++){
+    if (ligne === 2 && colonne === 25) {
+      console.log("X");
+    } else if (ligne === 9 && colonne === 7){
+      console.log("X");
+    } else if (ligne === 4 && colonne === 6){
+      console.log(0);
+    } else if (ligne === 7 && colonne === 18){
+      console.log(0);
+    } else {
+      console.log("~");
+    }
   }
 }

@@ -1,6 +1,5 @@
 // > Frieda and Francis walk on the street. Frieda is 22 and Francis is 17.
 //
-<<<<<<< HEAD
 // Create two objects, `francis`, `frieda` with the fields :
 //   `age` (an integer) and `name`, (obviously a string)
 
@@ -15,28 +14,3 @@
 // it is expected to see failures for these tests:
 // "Frieda|Francis should be inside an object frieda|francis".
 // All the other tests should work.
-=======
-// Create two objects, `francis`, `frieda` with the fields : `age` (an integer) and `name`, (obviously a string)
-const francis = {
-  age: 17,
-  name: "Francis",
-  licence: ""
-};
-
-const frieda = {
-  age: 22,
-  name: "Frieda"
-};
-
-// Create two variables `canFriedaDrinkAlcohol` and `canFrancisDrinkAlcohol` to answer, respectively, to the question "Can he / she drink
-// alcohol.".
-// These variables should stay correct if we modify the ages of the objects `francis` and `frieda`.
-<<<<<<< HEAD
-const canFriedaDrinkAlcohol = true;
-const canFrancisDrinkAlcohol = false;
->>>>>>> exo done 23112017
->>>>>>> exo done 23112017
-=======
-const canFriedaDrinkAlcohol = frieda.age >= 18;
-const canFrancisDrinkAlcohol = francis.age >= 18;
->>>>>>> BIM BAM BOUM, fin de l'exo 4
