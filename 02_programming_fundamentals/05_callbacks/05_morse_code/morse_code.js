@@ -45,7 +45,24 @@ const MORSE_CODE = {
 };
 
 function decodeMorse(morse) {
-  // Your code here
+  const morseSplittedInWordsinAnArray = morse.split("   ");
+
+  return morseSplittedInWordsinAnArray
+    .map(morseToEnglish)
+    .join(" ");
+}
+
+function morseToEnglish (word) {
+  const wordInMorseToArray = word.split(" ");
+
+  return wordInMorseToArray
+    .map(getLetter)
+    .join("");
+}
+
+function getLetter(morseLetter) {
+
+  return MORSE_CODE[morseLetter];
 }
 
 // Do not remove last lines, it is for tests
