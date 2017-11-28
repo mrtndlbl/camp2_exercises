@@ -21,8 +21,9 @@ function highOrLow(numberIn, mysteryNumber) {
     } else if (numberIn < 0 || numberIn > 100) {
       console.log("The number is between 1 and 100");
     } else {
-      // if it is a number, compare it to the mystery number
+      // good number cases :
       if (numberIn === mysteryNumber) {
+        // if you find the good number the first time display a wonderful message
         if (tryNumber === 2) {
           console.log("Wonderful, you find the mystery number at the first try !!");
           result = true;
@@ -30,12 +31,14 @@ function highOrLow(numberIn, mysteryNumber) {
           console.log("You won!");
           result = true;
         }
+        // wrong number cases :
       } else if (numberIn > mysteryNumber) {
         console.log("Too high");
       } else {
         console.log("Too low");
       }
     }
+    //game over ?
     if (result) {
       reader.close();
     } else {
