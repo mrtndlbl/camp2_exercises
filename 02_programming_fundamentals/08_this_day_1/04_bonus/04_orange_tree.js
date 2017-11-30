@@ -33,7 +33,20 @@ const orangeTree = {
     } else if (this.age >= 40 && this.age < 50 ) {
       this.oranges = 0;
       return this;
-    } else if (this.age >= 50 && this.age <= 100) {
+      //A partir de 50 ans la probabilité de mourir augmente
+    } else if (this.age > 50 && this.age <= 60) {
+      this.alive = Math.random() >= 0.1;
+      return this;
+    } else if (this.age > 60 && this.age <= 70) {
+      this.alive = Math.random() >= 0.2;
+      return this;
+    } else if (this.age > 70 && this.age <= 80) {
+      this.alive = Math.random() >= 0.3;
+      return this;
+    } else if (this.age > 80 && this.age <= 90) {
+      this.alive = Math.random() >= 0.4;
+      return this;
+    } else if (this.age > 90 && this.age <= 100) {
       this.alive = Math.random() >= 0.5;
       return this;
     } else if (this.age > 100) {
