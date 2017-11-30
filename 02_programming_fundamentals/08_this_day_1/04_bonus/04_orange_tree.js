@@ -13,8 +13,6 @@ const orangeTree = {
     }
   },
   ageOneYear: function() {
-    console.log(`orangeTree\'s age = ${this.age}`);
-    console.log(`alive = ${this.alive}`);
     this.age += 1;
     if (this.age >= 5 && this.age < 10) {
       this.oranges = 10;
