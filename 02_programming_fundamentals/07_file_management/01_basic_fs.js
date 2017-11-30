@@ -7,16 +7,6 @@ function pwd() {
   return path.resolve();
 }
 
-//check existing file
-function fileExist(filename) {
-  try {
-    fs.accessSync(filename);
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
 //RM for the win
 function deleteFile(filename) {
   fs.unlink(filename, (error) => {
@@ -46,6 +36,16 @@ function copyPaste(sourceFilename, targetFilename) {
 function cutPaste(sourceFilename, targetFilename) {
   copyPaste(sourceFilename, targetFilename);
   deleteFile(sourceFilename);
+}
+
+//Check existing file
+function fileExist(filename) {
+  try {
+    fs.accessSync(filename);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 //The famous command touch
