@@ -5,6 +5,17 @@ const reader = readline.createInterface({
   output: process.stdout
 });
 
+const WINNING_COORDINATES = [
+  [{letter: "a", digit: "0"}, {letter: "a", digit: "1"}, {letter: "a", digit: "2"}],
+  [{letter: "b", digit: "0"}, {letter: "b", digit: "1"}, {letter: "b", digit: "2"}],
+  [{letter: "c", digit: "0"}, {letter: "c", digit: "1"}, {letter: "c", digit: "2"}],
+  [{letter: "a", digit: "0"}, {letter: "b", digit: "1"}, {letter: "c", digit: "2"}],
+  [{letter: "a", digit: "2"}, {letter: "b", digit: "1"}, {letter: "c", digit: "0"}],
+  [{letter: "a", digit: "0"}, {letter: "b", digit: "0"}, {letter: "c", digit: "0"}],
+  [{letter: "a", digit: "1"}, {letter: "b", digit: "1"}, {letter: "c", digit: "1"}],
+  [{letter: "a", digit: "2"}, {letter: "b", digit: "2"}, {letter: "c", digit: "2"}]
+];
+
 const state = {
   a: Array(3).fill(null),
   b: Array(3).fill(null),
@@ -13,44 +24,28 @@ const state = {
 
 let currentPlayer;
 
+// function hasWinner()
+// function gameIsFinished()
+
 function handleInput(input) {
   const coordinate = getCoordinate(input);
   if (coordinate) {
     updateState(coordinate);
-    const result = checkResult();
-    if (checkResult) {
-      console.log("You win");
-      process.exit();
+    if (hasWinner()) {
+      console.log(renderBoard());
+      console.log(`Congratulations ${currentPlayer}, you won! ＼(＾O＾)／`);
+      reader.close();
+    } else if (gameIsFinished()) {
+      console.log(renderBoard());
+      console.log("Looks like it's a tie. Thanks for playing! ¯\\_(ツ)_/¯");
+      reader.close();
     } else {
-    nextPlayer();
+      nextPlayer();
+      playTurn();
     }
   } else {
     console.log("This is not a valid move");
-  }
-  playTurn();
-}
-
-function checkResult() {
-  if (
-  (state.a[0] === state.a[1] === state.a[2] === "X") ||
-  (state.a[0] === state.a[1] === state.a[2] === "O") ||
-  (state.b[0] === state.b[1] === state.b[2] === "X") ||
-  (state.b[0] === state.b[1] === state.b[2] === "O") ||
-  (state.c[0] === state.c[1] === state.c[2] === "X") ||
-  (state.c[0] === state.c[1] === state.c[2] === "O") ||
-  (state.a[0] === state.b[0] === state.c[0] === "X") ||
-  (state.a[0] === state.b[0] === state.c[0] === "O") ||
-  (state.b[0] === state.b[1] === state.b[2] === "X") ||
-  (state.b[0] === state.b[1] === state.b[2] === "O") ||
-  (state.c[0] === state.c[1] === state.c[2] === "X") ||
-  (state.c[0] === state.c[1] === state.c[2] === "O") ||
-  (state.a[1] === state.b[2] === state.c[3] === "X") ||
-  (state.a[1] === state.b[2] === state.c[3] === "O") ||
-  (state.a[3] === state.b[2] === state.c[1] === "X") ||
-  (state.a[3] === state.b[2] === state.c[1] === "O")) {
-    return true;
-  } else {
-    return false;
+    playTurn();
   }
 }
 
@@ -114,6 +109,33 @@ function renderBoard() {
   const header = "  1   2   3";
 
   return `${header}\n${rows}`;
+}
+
+function flattenArray(arrayOfArray) {
+  return arrayOfArray.reduce((newArray, array) => newArray.concat(array), [])
+}
+
+function gameIsFinished() {
+  const allValues = flattenArray(Object.values(state));
+
+  return allValues.every(isNotNull)
+}
+
+function hasWinner() {
+  const isWinningLine = (line) => {
+    const pattern =
+      line
+      .map((coordinate) => state[coordinate.letter][coordinate.digit])
+      .join("");
+
+    return pattern === "XXX" || pattern === "OOO";
+  }
+
+  return WINNING_COORDINATES.some(isWinningLine);
+}
+
+function isNotNull(value) {
+  return value !== null;
 }
 
 start();
