@@ -2,14 +2,14 @@ const container = {
   litersOfCoffee: 0,
 };
 
-function fillWithLitersOfCoffee(numberOfLiters) {
-  container.litersOfCoffee =+ numberOfLiters;
+function putLitersOfCoffee(numberOfLiters) {
+  container.litersOfCoffee += numberOfLiters;
   return true;
 }
 
 function consumeLitersOfCoffee(numberOfLiters) {
-  if (numberOfLiters >= container.litersOfCoffee) {
-    container.litersOfCoffee =- numberOfLiters;
+  if (container.litersOfCoffee >= numberOfLiters) {
+    container.litersOfCoffee -= numberOfLiters;
     return true;
   } else {
     return false;
@@ -17,6 +17,7 @@ function consumeLitersOfCoffee(numberOfLiters) {
 }
 
 module.exports = {
-  fillWithLitersOfCoffee: fillWithLitersOfCoffee,
+  container: container,
+  putLitersOfCoffee: putLitersOfCoffee,
   consumeLitersOfCoffee: consumeLitersOfCoffee
 };
