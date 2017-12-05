@@ -89,11 +89,11 @@ function publishPost(userId, title, body, callback) {
     {
       url: "http://jsonplaceholder.typicode.com/posts",
       method: "POST",
-      body: JSON.stringify({
+      form: {
         userId: "2",
         title: "title",
         body: "body"
-      }),
+      },
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
@@ -109,12 +109,12 @@ function publishComment(postId, name, email, body, callback) {
     {
       url: `http://jsonplaceholder.typicode.com/comments?postId=${postId}`,
       method: "POST",
-      body: JSON.stringify({
+      form: {
         name: "name",
         email: "email",
         body: "body",
         postId: "2"
-      }),
+      },
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
@@ -130,9 +130,9 @@ function updatePostTitle(postId, newTitle, callback) {
     {
       url: `http://jsonplaceholder.typicode.com/posts/${postId}`,
       method: "PUT",
-      body: JSON.stringify({
+      form: {
         title: "title"
-      }),
+      },
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
@@ -148,9 +148,9 @@ function updatePostBody(postId, newBody, callback) {
     {
       url: `http://jsonplaceholder.typicode.com/posts/${postId}`,
       method: "PUT",
-      body: JSON.stringify({
+      form: {
         body: "body"
-      }),
+      },
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
@@ -166,10 +166,10 @@ function updatePost(postId, newTitle, newBody, callback) {
     {
       url: `http://jsonplaceholder.typicode.com/posts/${postId}`,
       method: "PUT",
-      body: JSON.stringify({
+      form: {
         title: "title",
         body: "body"
-      }),
+      },
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
