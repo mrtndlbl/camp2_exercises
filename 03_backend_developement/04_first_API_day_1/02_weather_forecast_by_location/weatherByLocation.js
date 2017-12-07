@@ -1,48 +1,50 @@
 const request = require("request");
+
 const API_KEY = process.env.OPENWEATHER_API_KEY;
 
-function weatherByLatitudeAndLongitude(lat, lon) {
-  return request(
+function weatherByLatitudeAndLongitude(latitude, longitude, callback) {
+  fetchForecastsByLatitudeAndLongitude(latitude, longitude, function(json) {
+    callback(json.list.map(reformatForecast));
+  });
+}
+
+function fetchForecastsByLatitudeAndLongitude(latitude, longitude, callback) {
+  request(
     {
-      url: `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`,
-      method: "GET",
+      url: `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&APPID=${API_KEY}`,
+      method: "GET"
     },
     function(error, response, result) {
       const json = JSON.parse(result);
-      // console.log(json);
-      return json.list.map((object) => {
-        return {
-          date: object.dt_txt,
-          temperature: object.main.temp,
-          weather: object.weather[0]
-        };
-      });
+
+      callback(json);
     }
   );
 }
 
-function weatherByZipcode(zipCode, countryCode) {
-  return request(
-    {
-      url: `http://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},${countryCode}&APPID=${API_KEY}&units=metric`,
-      method: "GET",
-    },
-    function(error, response, result) {
-      const json = JSON.parse(result);
-      const weatherArray = json.list.map((object) => {
-        return {
-          date: object.dt_txt,
-          temperature: object.main.temp,
-          weather: object.weather[0]
-        };
-      }
-      );
-      // console.log(weatherArray);
-      return weatherArray;
+function reformatForecast(forecast) {
+  return {
+    date: timestampToDate(forecast.dt),
+    temperature: forecast.main.temp,
+    weather: {
+      id: forecast.weather[0].id,
+      main: forecast.weather[0].main,
+      description: forecast.weather[0].description
     }
-  );
+  };
 }
+
+function timestampToDate(timestamp) {
+  const date = new Date(timestamp * 1000);
+
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+}
+
+weatherByLatitudeAndLongitude(35, 139, function(forecasts) {
+  console.log(forecasts);
+});
 
 module.exports = {
-  weatherByLatitudeAndLongitude,
-  weatherByZipcode};
+  reformatForecast: reformatForecast,
+  weatherByLatitudeAndLongitude: weatherByLatitudeAndLongitude
+};
