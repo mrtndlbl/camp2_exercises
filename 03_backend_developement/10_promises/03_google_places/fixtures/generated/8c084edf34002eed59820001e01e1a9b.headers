@@ -1,0 +1,37 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "content-type": "application/json; charset=UTF-8",
+    "date": "Fri, 15 Dec 2017 15:59:37 GMT",
+    "expires": "Sat, 16 Dec 2017 15:59:37 GMT",
+    "cache-control": "public, max-age=86400",
+    "vary": "Accept-Language",
+    "access-control-allow-origin": "*",
+    "content-encoding": "gzip",
+    "server": "mafe",
+    "content-length": "540",
+    "x-xss-protection": "1; mode=block",
+    "x-frame-options": "SAMEORIGIN",
+    "alt-svc": "hq=\":443\"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337; quic=51303335,quic=\":443\"; ma=2592000; v=\"41,39,38,37,35\"",
+    "connection": "close"
+  },
+  "url": "https://maps.googleapis.com/maps/api/geocode/json?address=Decathlon%20Campus&key=AIzaSyCZou0ctCOsQoT7Xs5kl9mVG3Dbvo2PVCA",
+  "time": 390,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "accept-encoding": [
+        "gzip,deflate"
+      ],
+      "user-agent": [
+        "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)"
+      ],
+      "connection": [
+        "close"
+      ],
+      "accept": [
+        "*/*"
+      ]
+    }
+  }
+}

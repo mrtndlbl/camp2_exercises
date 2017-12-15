@@ -7,5 +7,9 @@
     "test": "jest"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^1.7.3",
+    "sepia": "^2.0.2"
+  }
 }

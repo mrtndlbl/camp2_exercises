@@ -1,0 +1,33 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "server": "openresty",
+    "date": "Fri, 15 Dec 2017 15:59:38 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "450",
+    "connection": "close",
+    "x-cache-key": "/data/2.5/weather?APPID=2fec09523cccc4110d74bdf1382c2c46&lat=50.65&lon=3.14&units=metric",
+    "access-control-allow-origin": "*",
+    "access-control-allow-credentials": "true",
+    "access-control-allow-methods": "GET, POST"
+  },
+  "url": "http://api.openweathermap.org/data/2.5/weather?lat=50.645741&lon=3.142559&APPID=2fec09523cccc4110d74bdf1382c2c46&units=metric",
+  "time": 154,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "accept-encoding": [
+        "gzip,deflate"
+      ],
+      "user-agent": [
+        "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)"
+      ],
+      "connection": [
+        "close"
+      ],
+      "accept": [
+        "*/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "server": "Cowboy",
+    "connection": "close",
+    "x-powered-by": "Express",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "63",
+    "etag": "W/\"3f-ObrdLA2zKmn4hQZ46DfUGwCNFqA\"",
+    "date": "Fri, 15 Dec 2017 15:20:37 GMT",
+    "via": "1.1 vegur"
+  },
+  "url": "https://decath-product-api.herokuapp.com/brands/9dffa1e1-59db-4401-b878-618746c0b58f",
+  "time": 114,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "accept-encoding": [
+        "gzip,deflate"
+      ],
+      "user-agent": [
+        "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)"
+      ],
+      "connection": [
+        "close"
+      ],
+      "accept": [
+        "*/*"
+      ]
+    }
+  }
+}
