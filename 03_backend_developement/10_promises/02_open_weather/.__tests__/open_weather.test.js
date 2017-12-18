@@ -1,5 +1,5 @@
-const open_weather = require("../open_weather.js")
 require("sepia");
+const open_weather = require("../open_weather.js")
 
 test("Check that weatherByCityName call the OpenWeather API", () => {
   expect.assertions(1);
