@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>CSS Selectors</title>
+    <style>
+      table {
+        width: 100%;
+        font-family: arial;
+      }
+      th {
+        background-color: #0B0B61;
+        color: white;
+      }
+      tr:nth-child(2n+1) {background:#CCC;}
+      tr.champion {
+        background-color: #F5DA81;
+      }
+      tr.europe {
+        background-color: #31B404;
+        color: white
+      }
+      tr.barrages {
+        background-color: tomato;
+        color: white
+      }
+      tr.relegation {
+        background-color: #ff0000;
+        color: white
+      }
+      .important {
+        font-weight: bold;
+      }
+      .emphasis {
+        font-style: italic;
+      }
+      .important.emphasis {
+        color: rgb(255, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span class="important"> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span> Duis aute<span class="important emphasis"> irure dolor in reprehenderit </span>in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt <span class="emphasis">mollit anim id est laborum.</span>
+    </p>
+    <table>
+      <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Matchs Played</th>
+        <th>Points</th>
+      </tr>
+      <tr class="champion">
+        <td>1</td>
+        <td>Paris Saint-Germain</td>
+        <td>18</td>
+        <td>47</td>
+      </tr>
+      <tr class="europe">
+        <td>2</td>
+        <td>AS Monaco</td>
+        <td>18</td>
+        <td>38</td>
+      </tr>
+      <tr class="europe">
+        <td>3</td>
+        <td>Olympique Lyonnais</td>
+        <td>18</td>
+        <td>38</td>
+      </tr>
+      <tr class="europe">
+        <td>4</td>
+        <td>Olympique de Marseille</td>
+        <td>18</td>
+        <td>35</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>FC Nantes</td>
+        <td>18</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>OGC Nice</td>
+        <td>18</td>
+        <td>26</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Stade Rennais FC</td>
+        <td>18</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>RC Strasbourg Alsace</td>
+        <td>18</td>
+        <td>24</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Dijon FCO</td>
+        <td>18</td>
+        <td>24</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>SM Caen</td>
+        <td>18</td>
+        <td>24</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Montpellier Hérault SC</td>
+        <td>18</td>
+        <td>23</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>EA Guingamp</td>
+        <td>18</td>
+        <td>23</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Amiens SC</td>
+        <td>18</td>
+        <td>21</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>ESTAC Troyes</td>
+        <td>18</td>
+        <td>21</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Girondins de Bordeaux</td>
+        <td>18</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>AS Saint-Etienne</td>
+        <td>18</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Toulouse FC</td>
+        <td>18</td>
+        <td>19</td>
+      </tr>
+      <tr class="barrages">
+        <td>18</td>
+        <td><span class="important">LOSC</span></td>
+        <td>18</td>
+        <td>18</td>
+
+      </tr>
+      <tr class="relegation">
+        <td>19</td>
+        <td>Angers SCO</td>
+        <td>18</td>
+        <td>15</td>
+      </tr>
+      <tr class="relegation">
+        <td>20</td>
+        <td>FC Metz</td>
+        <td>18</td>
+        <td>8</td>
+      </tr>
+    </table>
+  </body>
+</html>
