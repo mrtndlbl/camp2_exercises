@@ -1,0 +1,15 @@
+{
+  "name": "02_open_weather_front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "open_weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-fetch": "^1.7.3"
+  }
+}
