@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    body{
+      width:475px;
+      margin:auto;
+    }
+    #bloc-img{
+      height: 475px;
+      width: 475px;
+    }
+    @media (min-width: 1000px){
+      #bloc-img{
+      background: url("./charizard.png");
+      }
+    }
+    @media (max-width: 1000px){
+      #bloc-img{
+      background: url("./charmeleon.png");
+      }
+    }
+    @media (max-width: 600px){
+      #bloc-img{
+      background: url("./charmander.png");
+      }
+    }
+   </style>
+  </head>
+  <body>
+    <div id="bloc-img"></div>
+  </body>
+</html>`

@@ -10,6 +10,6 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^21.2.1",
-    "wapiti": "^1.2.1"
+    "wapiti": "^1.3.0"
   }
 }

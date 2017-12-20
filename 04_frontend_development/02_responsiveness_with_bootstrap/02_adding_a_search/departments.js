@@ -102,8 +102,14 @@ const DEPARTMENTS = [
   "RÉUNION"
 ];
 
+function filterArray(input) {
+  const filteredDep = DEPARTMENTS.filter(dep => dep.includes(input.toUpperCase()));
+  displayDepartments(filteredDep);
+}
+
 function displayDepartments(departments) {
   const container = document.querySelector("#department-list");
+  console.log(container);
   container.innerHTML = departments.map(function(department) {
     return `<li class="list-group-item">${department}</li>`
   }).join("")
