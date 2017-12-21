@@ -1,0 +1,22 @@
+{% extends "home.njk" %}
+
+{% block title %}
+  <title>Decathlon catalog</title>
+{% endblock %}
+
+{% block content %}
+<div>
+  <div class="container" style="padding:25px">
+    <div class="row">
+      <div class="col col-sm-9">
+        <ul id="categories-list" class="list-group">
+          <li class="list-group-item list-group-item-dark">List of categories</li>
+            {% for cat in categories %}
+              <a href="http://localhost:3000/category/{{cat.id}}/products" class="list-group-item list-group-item-action">{{cat.label}}</a>
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "home.njk" %}
+
+{% block title %}
+  <title>Product</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-4" style="padding:5px">
+        <div class="card">
+          <div class="card-body">
+            <img class="card-img-top" src="https://www.decathlon.fr/media/{{product.image_path}}" alt="Card image cap">
+          </div>
+        </div>
+      </div>
+      <div class="col-4" style="padding:5px">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <h4 class="card-title">{{product.title}}</h4>
+            <h5 class="card-text">{{product.min_price}} €</h5>
+            <p class="card-text">Rating: {{product.rating}}</p>
+            <div class="jauge">
+             <div style = "width : {{ product.rating*20 }}%;">
+             </div>
+           </div>
+            <p class="card-text">{{product.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

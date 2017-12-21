@@ -1,0 +1,36 @@
+{% extends "home.njk" %}
+
+{% block title %}
+  <title>Category</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-3">{{category[0].label}}</h1>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categories
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {% for cat in categories %}
+          <a class="dropdown-item" href="http://localhost:3000/category/{{cat.id}}/products">{{cat.label}}</a>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+  <div class="container">
+
+    <div class="row">
+      {% for product in products %}
+      <div class="col-4" style="padding:5px">
+        <div class="card">
+          <div class="card-body">
+            <img class="card-img-top" src="https://www.decathlon.fr/media/{{product.image_path}}" alt="Card image cap">
+            <a href="http://localhost:3000/products/{{product.id}}" class="card-link">{{product.title}}</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

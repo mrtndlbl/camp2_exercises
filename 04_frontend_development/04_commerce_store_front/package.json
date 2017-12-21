@@ -1,0 +1,17 @@
+{
+  "name": "04_commerce_store_front",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-fetch": "^1.7.3",
+    "nunjucks": "^3.0.1"
+  }
+}
