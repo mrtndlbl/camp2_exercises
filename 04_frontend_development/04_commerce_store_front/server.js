@@ -1,14 +1,16 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
-const app = express();
 const fetch = require("node-fetch");
+
+const app = express();
 const port = process.env.PORT || 3000;
-app.use(express.static("images"));
 
 nunjucks.configure("views", {
   autoescape: true,
   express: app
 });
+
+app.use(express.static("images"));
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "njk");
@@ -32,7 +34,6 @@ function getCategories() {
     .then((res) => res.json())
     .catch((error) => {
       console.warn(error);
-      client.end();
     });
 }
 
@@ -54,13 +55,11 @@ app.get("/category/:idCategory/products", function(request, result) {
   })
 })
 
-
 function getProductsByCategory(idCategory) {
   return fetch(`https://decath-product-api.herokuapp.com/categories/${idCategory}/products`)
     .then((res) => res.json())
     .catch((error) => {
       console.warn(error);
-      client.end();
     });
 }
 
@@ -77,11 +76,7 @@ app.get("/products/:idProduct", function(request, result) {
 function getProducts(idProduct) {
   return fetch(`https://decath-product-api.herokuapp.com/products/${idProduct}`)
     .then((res) => res.json())
-    .then((json) => {
-      return product = json
-    })
     .catch((error) => {
       console.warn(error);
-      client.end();
     });
 }
