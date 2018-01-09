@@ -16,7 +16,6 @@ class Table extends Component {
     ? this.setState({inputProductTable: _.sortBy(this.state.inputProductTable, filter), order : "des"})
     : this.setState({inputProductTable: _.sortBy(this.state.inputProductTable, filter).reverse(), order : "asc"});
 
-
   render() {
     return (
       <div>
