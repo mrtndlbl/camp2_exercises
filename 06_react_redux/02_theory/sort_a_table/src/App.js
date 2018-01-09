@@ -1,21 +1,47 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import _ from 'underscore';
 
-class App extends Component {
+class Table extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      inputProductTable : props.inputProductTable,
+      order : "asc"
+    }
+  }
+
+  sortMachine = filter =>
+    this.state.order === "asc"
+    ? this.setState({inputProductTable: _.sortBy(this.state.inputProductTable, filter), order : "des"})
+    : this.setState({inputProductTable: _.sortBy(this.state.inputProductTable, filter).reverse(), order : "asc"});
+
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <table>
+          <tr>
+            <th onClick = {() => this.sortMachine("decathlon_id")}>Decathlon ID</th>
+            <th onClick = {() => this.sortMachine("title")}>Title</th>
+            <th onClick = {() => this.sortMachine("price")}>Price</th>
+          </tr>
+          {this.state.inputProductTable.map(productRow => <Row productRow={productRow} />)}
+        </table>
       </div>
     );
   }
 }
 
-export default App;
+function Row(props) {
+  console.log(props)
+  return (
+    <tr>
+      <td>{props.productRow.decathlon_id}</td>
+      <td>{props.productRow.title}</td>
+      <td>{props.productRow.price}</td>
+    </tr>
+  )
+}
+
+export default Table;
