@@ -1,46 +1,42 @@
-import React, { Component } from 'react';
-import './App.css';
-import _ from 'underscore';
+import React, { Component } from "react";
+import _ from "underscore";
+import Row from "./Row";
 
 class Table extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      inputProductTable : props.inputProductTable,
-      order : "asc"
+      lines: this.props.lines,
+      sortedBy: "decathlon_id",
+      reverseSort: false
+    };
+
+    this.filter = this.filter.bind(this);
+  }
+
+  filter(filterBy) {
+    if (this.state.sortedBy === filterBy) {
+      this.setState({reverseSort: !this.state.reverseSort});
+    } else {
+      this.setState({
+        sortedBy: filterBy,
+        reverseSort: false
+      });
     }
   }
 
-  sortMachine = filter =>
-    this.state.order === "asc"
-    ? this.setState({inputProductTable: _.sortBy(this.state.inputProductTable, filter), order : "des"})
-    : this.setState({inputProductTable: _.sortBy(this.state.inputProductTable, filter).reverse(), order : "asc"});
-
   render() {
+    let sortedLines = _.sortBy(this.state.lines, this.state.sortedBy);
+    if (this.state.reverseSort) {
+      sortedLines.reverse();
+    }
     return (
-      <div>
-        <table>
-          <tr>
-            <th onClick = {() => this.sortMachine("decathlon_id")}>Decathlon ID</th>
-            <th onClick = {() => this.sortMachine("title")}>Title</th>
-            <th onClick = {() => this.sortMachine("price")}>Price</th>
-          </tr>
-          {this.state.inputProductTable.map(productRow => <Row productRow={productRow} />)}
-        </table>
-      </div>
+      <table>
+        <TableHead filter={this.filter} />
+        {sortedLines.map(Row)}
+      </table>
     );
   }
-}
-
-function Row(props) {
-  console.log(props)
-  return (
-    <tr>
-      <td>{props.productRow.decathlon_id}</td>
-      <td>{props.productRow.title}</td>
-      <td>{props.productRow.price}</td>
-    </tr>
-  )
 }
 
 export default Table;
