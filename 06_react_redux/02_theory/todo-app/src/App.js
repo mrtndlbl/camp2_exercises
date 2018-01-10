@@ -66,14 +66,11 @@ class Todo extends Component {
                 onChange={() => this.strikeThrough(index)}
               />
               <span>{todo.value}</span>
-              {
-                todo.check
-                ? <button type="button" onClick={() => this.deleteTask(index)}>
+              {todo.check ? (
+                <button type="button" onClick={() => this.deleteTask(index)}>
                   Delete task
-                  </button>
-                : null
-              }
-
+                </button>
+              ) : null}
             </div>
           ))}
         </form>
