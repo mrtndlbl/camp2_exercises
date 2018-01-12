@@ -3,10 +3,10 @@ import _ from "underscore";
 
 function Row(props) {
   return (
-    <tr>
+    <tr key={props.decathlon_id}>
       <td>{props.decathlon_id}</td>
-      <td>{props.title}</td>
-      <td>{props.price}</td>
+      <td className="title">{props.title}</td>
+      <td className="price">{props.price}</td>
     </tr>
   );
 }
@@ -42,11 +42,13 @@ class App extends Component {
         <thead>
           <tr>
             <th onClick={() => this.filter("decathlon_id")}>ID</th>
-            <th onClick={() => this.filter("title")}>Title</th>
-            <th onClick={() => this.filter("price")}>Price</th>
+            <th className="titleHeader" onClick={() => this.filter("title")}>Title</th>
+            <th className="priceHeader" onClick={() => this.filter("price")}>Price</th>
           </tr>
         </thead>
-        {sortedLines.map(Row)}
+        <tbody>
+          {sortedLines.map(Row)}
+        </tbody>
       </table>
     );
   }

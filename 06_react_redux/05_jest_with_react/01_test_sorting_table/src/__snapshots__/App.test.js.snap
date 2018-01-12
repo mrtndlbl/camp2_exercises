@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The table appears at server starting 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th
+        onClick={[Function]}
+      >
+        ID
+      </th>
+      <th
+        className="titleHeader"
+        onClick={[Function]}
+      >
+        Title
+      </th>
+      <th
+        className="priceHeader"
+        onClick={[Function]}
+      >
+        Price
+      </th>
+    </tr>
+  </thead>
+  <tbody />
+</table>
+`;
