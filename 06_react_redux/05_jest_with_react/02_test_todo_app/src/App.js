@@ -71,7 +71,7 @@ class App extends Component {
                 onChange={() => this.updateTask(task.id)}
               />
               { task.completed
-                ? <input type="button" onClick={() => this.deleteTask(task.id)} value="delete" />
+                ? <input className="deleteButton" type="button" onClick={() => this.deleteTask(task.id)} value="delete" />
                 : null
               }
             </li>

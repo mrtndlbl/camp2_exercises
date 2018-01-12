@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The toDoList appears at server starting 1`] = `
+<div
+  className="Todo"
+>
+  <div
+    className="new-todo"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Add
+      </button>
+    </form>
+  </div>
+  <ul
+    className="todos"
+  />
+</div>
+`;
