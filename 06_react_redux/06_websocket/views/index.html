@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test - WebSoscket</title>
+  </head>
+  <body>
+    <h1>Welcome to Socket Land!</h1>
+    <p>There is <span id="nbUsers">0</span> users connected.</p>
+  </body>
+  <script type="text/javascript">
+    const nbUsersElem = document.getElementById("nbUsers");
+
+    // We open a connection from the client, related to the server
+    const ws = new WebSocket("ws://localhost:3000");
+
+    // What to do when we receive a message?
+    ws.onmessage = (event) => {
+      console.log("Message: " + event.data);
+      nbUsersElem.innerHTML = event.data;
+    };
+
+    // Alert the server that the client is gone
+    window.addEventListener("beforeunload", () => ws.send("CLOSE"));
+  </script>
+</html>

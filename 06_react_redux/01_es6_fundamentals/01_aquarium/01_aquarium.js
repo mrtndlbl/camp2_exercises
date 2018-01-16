@@ -31,7 +31,6 @@ class Aquarium {
   }
 }
 
-
 class Fish {
   constructor(name, sex, kind) {
     this.kind = kind;
