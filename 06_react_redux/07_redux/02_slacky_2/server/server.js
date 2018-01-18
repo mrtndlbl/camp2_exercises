@@ -24,7 +24,7 @@ wss.on("connection", function connection(ws, req) {
       case "NEW_MESSAGE":
         // Add the message to the list of messages
         messages.push({ userName: message.userName, message: message.message });
-
+console.log(messages);
         // Sends all messages to all connected clients
         wss.clients.forEach((client) => {
           if (client.readyState === WebSocket.OPEN) {

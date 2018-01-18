@@ -1,32 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { connectWebsocket } from "./webSockets";
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ""
-    };
-  }
-
-  handleChange = event => {
-    this.setState({ value: event.target.value });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.handleUserName(this.state.value);
-  };
-
   render() {
     return (
-      <form className="Login" onSubmit={this.handleSubmit}>
-        <div>
-          Please choose a login name
-        </div>
+      <form className="Login" onSubmit={this.props.handleSubmit}>
+        <div>Please choose a login name</div>
         <input
           type="text"
-          onChange={this.handleChange}
-          value={this.state.value}
+          onChange={this.props.handleChange}
+          value={this.props.temporaryUserName}
         />
         <button type="submit">Log in</button>
       </form>
@@ -34,4 +18,27 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    temporaryUserName: state.loginReducer.temporaryUserName
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    handleChange: event =>
+      dispatch({
+        type: "UPDATE_USERNAME",
+        temporaryUserName: event.target.value
+      }),
+    handleSubmit: event => {
+      event.preventDefault();
+      dispatch({ type: "LOGIN" });
+      connectWebsocket();
+    }
+  };
+}
+
+export const ConnectedLogin = connect(mapStateToProps, mapDispatchToProps)(
+  Login
+);
